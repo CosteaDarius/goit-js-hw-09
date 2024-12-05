@@ -1,12 +1,12 @@
-import flatpickr from "flatpickr";
-import "flatpickr/dist/flatpickr.min.css";
+import flatpickr from 'flatpickr';
+import 'flatpickr/dist/flatpickr.min.css';
 
-const datetimePicker = document.querySelector("#datetime-picker");
-const startButton = document.querySelector("[data-start]");
-const daysSpan = document.querySelector("[data-days]");
-const hoursSpan = document.querySelector("[data-hours]");
-const minutesSpan = document.querySelector("[data-minutes]");
-const secondsSpan = document.querySelector("[data-seconds]");
+const datetimePicker = document.querySelector('#datetime-picker');
+const startButton = document.querySelector('[data-start]');
+const daysSpan = document.querySelector('[data-days]');
+const hoursSpan = document.querySelector('[data-hours]');
+const minutesSpan = document.querySelector('[data-minutes]');
+const secondsSpan = document.querySelector('[data-seconds]');
 
 let selectedDate = null;
 let intervalId = null;
@@ -21,7 +21,7 @@ flatpickr(datetimePicker, {
     selectedDate = selectedDates[0];
 
     if (selectedDate <= now) {
-      alert("Please choose a date in the future!");
+      alert('Please choose a date in the future!');
       startButton.disabled = true;
     } else {
       startButton.disabled = false;
@@ -29,7 +29,7 @@ flatpickr(datetimePicker, {
   },
 });
 
-startButton.addEventListener("click", () => {
+startButton.addEventListener('click', () => {
   if (intervalId) clearInterval(intervalId);
 
   intervalId = setInterval(() => {
@@ -67,5 +67,5 @@ function updateTimerDisplay({ days, hours, minutes, seconds }) {
 }
 
 function addLeadingZero(value) {
-  return String(value).padStart(2, "0");
+  return String(value).padStart(2, '0');
 }
